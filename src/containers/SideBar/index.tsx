@@ -8,7 +8,7 @@ const BarraLateral = () => {
             <S.Filters>
                 <FiltroCard counter={3} description="Normal" />
                 <FiltroCard counter={1} description="Favorito" />
-                <FiltroCard ative counter={5} description="Todos" />
+                <FiltroCard ative="true" counter={5} description="Todos" />
             </S.Filters>
         </S.SideBar>
     );

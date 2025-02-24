@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import vars from "../../styles/vars";
+import * as enums from "../../utils/enums/ContactPriority";
 
 type TagProps = {
     priority?: string;
@@ -7,7 +8,8 @@ type TagProps = {
 
 function returnPriorityColor(props: TagProps): string {
     if ("priority" in props) {
-        if (props.priority === "Favorito") return vars.yellow;
+        if (props.priority === enums.ContactPriority.FAVORITE)
+            return vars.yellow;
     }
     return "#ccc";
 }

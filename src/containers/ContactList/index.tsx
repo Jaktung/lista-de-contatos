@@ -1,22 +1,23 @@
 import Contact from "../../components/Contact";
 import * as S from "./styles";
+import * as enums from "../../utils/enums/ContactPriority";
 
 const contacts = [
     {
         name: "João",
-        priority: "Normal",
+        priority: enums.ContactPriority.NORMAL,
         number: 123456789,
         email: "joao@gmail.com",
     },
     {
         name: "Maria",
-        priority: "Favorito",
+        priority: enums.ContactPriority.FAVORITE,
         number: 988765432,
         email: "maria@gmail.com",
     },
     {
         name: "José",
-        priority: "Normal",
+        priority: enums.ContactPriority.NORMAL,
         number: 842957264,
         email: "jose@gmai.com",
     },
@@ -29,13 +30,13 @@ const ListaDeContatos = () => {
                 2 tarefas marcadas como: <span>"todas"</span> e{" "}
                 <span>"termo"</span>{" "}
             </S.MainText>
-            <ul>
+            <S.GridList>
                 {contacts.map((c) => (
                     <li key={c.email}>
                         <Contact {...c} />
                     </li>
                 ))}
-            </ul>
+            </S.GridList>
         </S.Main>
     );
 };

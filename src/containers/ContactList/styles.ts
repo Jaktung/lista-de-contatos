@@ -13,3 +13,9 @@ export const MainText = styled.p`
     font-weight: bold;
     margin-bottom: 40px;
 `;
+
+export const GridList = styled.ul`
+    display: grid;
+    gap: 16px;
+    grid-template-columns: 1fr 1fr 1fr;
+`;

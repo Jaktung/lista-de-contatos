@@ -1,9 +1,10 @@
 import { useState } from "react";
 import * as S from "./styles";
+import * as enums from "../../utils/enums/ContactPriority";
 
 type Props = {
     name: string;
-    priority: string;
+    priority: enums.ContactPriority;
     email: string;
     number: number;
 };

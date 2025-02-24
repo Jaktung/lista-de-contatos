@@ -1,7 +1,7 @@
 import * as S from "./styles";
 
 export type Props = {
-    ative?: boolean;
+    ative?: boolean | string;
     counter: number;
     description: string;
 };
