@@ -5,7 +5,7 @@ import vars from "../../styles/vars";
 type CardProps = Omit<Props, "counter" | "description">;
 
 export const Card = styled.div<CardProps>`
-    background-color: ${(props) => (props.ative ? vars.white : "#fcfcfc")};
+    background-color: ${(props) => (props.ative ? vars.white : vars.bgColor2)};
     border: 1px solid ${(props) => (props.ative ? vars.blue : "#A1A1A1")};
     border-radius: 8px;
     padding: 8px;
