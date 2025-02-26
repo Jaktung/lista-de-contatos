@@ -1,29 +1,11 @@
 import Contact from "../../components/Contact";
 import * as S from "./styles";
-import * as enums from "../../utils/enums/ContactPriority";
-
-const contacts = [
-    {
-        name: "João",
-        priority: enums.ContactPriority.NORMAL,
-        number: 123456789,
-        email: "joao@gmail.com",
-    },
-    {
-        name: "Maria",
-        priority: enums.ContactPriority.FAVORITE,
-        number: 988765432,
-        email: "maria@gmail.com",
-    },
-    {
-        name: "José",
-        priority: enums.ContactPriority.NORMAL,
-        number: 842957264,
-        email: "jose@gmai.com",
-    },
-];
+import { useSelector } from "react-redux";
+import { RootReducer } from "../../store";
 
 const ListaDeContatos = () => {
+    const { contacts } = useSelector((state: RootReducer) => state);
+
     return (
         <S.Main>
             <S.MainText>
