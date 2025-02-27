@@ -6,9 +6,9 @@ const BarraLateral = () => {
         <S.SideBar>
             <S.Input type="text" placeholder="Procurar" />
             <S.Filters>
-                <FiltroCard counter={3} description="Normal" />
-                <FiltroCard counter={1} description="Favorito" />
-                <FiltroCard ative="true" counter={5} description="Todos" />
+                <FiltroCard counter={3} priority="Normal" />
+                <FiltroCard counter={1} priority="Favorito" />
+                <FiltroCard ative="true" counter={5} priority="Todos" />
             </S.Filters>
         </S.SideBar>
     );

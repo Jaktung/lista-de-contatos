@@ -4,7 +4,7 @@ import { useSelector } from "react-redux";
 import { RootReducer } from "../../store";
 
 const ListaDeContatos = () => {
-    const { contacts } = useSelector((state: RootReducer) => state);
+    const { items } = useSelector((state: RootReducer) => state.contacts);
 
     return (
         <S.Main>
@@ -13,7 +13,7 @@ const ListaDeContatos = () => {
                 <span>"termo"</span>{" "}
             </S.MainText>
             <S.GridList>
-                {contacts.map((c) => (
+                {items.map((c) => (
                     <li key={c.email}>
                         <Contact {...c} />
                     </li>

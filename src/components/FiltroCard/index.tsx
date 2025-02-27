@@ -3,14 +3,14 @@ import * as S from "./styles";
 export type Props = {
     ative?: boolean | string;
     counter: number;
-    description: string;
+    priority: string;
 };
 
-export const FiltroCard = ({ ative, counter, description }: Props) => {
+export const FiltroCard = ({ ative, counter, priority }: Props) => {
     return (
         <S.Card ative={ative}>
             <S.Counter>{counter}</S.Counter>
-            <S.Description>{description}</S.Description>
+            <S.Description>{priority}</S.Description>
         </S.Card>
     );
 };

@@ -2,7 +2,7 @@ import styled from "styled-components";
 import { Props } from ".";
 import vars from "../../styles/vars";
 
-type CardProps = Omit<Props, "counter" | "description">;
+type CardProps = Omit<Props, "counter" | "priority">;
 
 export const Card = styled.div<CardProps>`
     background-color: ${(props) => (props.ative ? vars.white : vars.bgColor2)};

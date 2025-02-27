@@ -1,46 +1,65 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
-import Contact from "../../models/Contact";
 import * as enums from "../../utils/enums/ContactPriority";
+import Contact from "../../models/Contact";
+
+const initialState = {
+    items: [
+        {
+            name: "Maria",
+            email: "maria@gmail.com",
+            number: 999999999,
+            description: "Esta me devendo dinheiro",
+            priority: enums.ContactPriority.FAVORITE,
+            id: 1,
+        },
+        {
+            name: "Joao",
+            email: "joao@gmail.com",
+            number: 999999999,
+            description: "Primo",
+            priority: enums.ContactPriority.NORMAL,
+            id: 2,
+        },
+        {
+            name: "José",
+            email: "jose@gmail.com",
+            number: 999999999,
+            description: "Filho do meu patrão, ficou de me pagar",
+            priority: enums.ContactPriority.NORMAL,
+            id: 3,
+        },
+        {
+            name: "Lara",
+            email: "lara@gmail.com",
+            number: 999999999,
+            description: "Academia 8h",
+            priority: enums.ContactPriority.NORMAL,
+            id: 4,
+        },
+    ],
+};
 
 const contactsSlice = createSlice({
     name: "contacts",
-    initialState: [
-        new Contact(
-            "Maria",
-            "maria@gmail.com",
-            999999999,
-            enums.ContactPriority.FAVORITE,
-            1
-        ),
-        new Contact(
-            "Joao",
-            "joao@gmail.com",
-            999999999,
-            enums.ContactPriority.NORMAL,
-            2
-        ),
-        new Contact(
-            "José",
-            "jose@gmail.com",
-            999999999,
-            enums.ContactPriority.NORMAL,
-            3
-        ),
-        new Contact(
-            "Lara",
-            "lara@gmail.com",
-            999999999,
-            enums.ContactPriority.NORMAL,
-            4
-        ),
-    ],
+    initialState,
     reducers: {
         remove: (state, action: PayloadAction<number>) => {
-            state = state.filter((contact) => contact.id !== action.payload);
+            state.items = state.items.filter(
+                (contact) => contact.id !== action.payload
+            );
+        },
+        edit: (state, action: PayloadAction<Contact>) => {
+            const contactIndex = state.items.findIndex(
+                (c) => c.id === action.payload.id
+            );
+
+            if (contactIndex >= 0) {
+                state.items[contactIndex] = action.payload;
+            }
         },
     },
 });
 
-export const { remove } = contactsSlice.actions;
+export const { remove, edit } = contactsSlice.actions;
 
 export default contactsSlice.reducer;

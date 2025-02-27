@@ -22,16 +22,24 @@ export const ContactCard = styled.div`
     margin-bottom: 32px;
 `;
 
-export const ContactInfos = styled.div`
+export const ContactContainer = styled.div`
     display: flex;
     flex-direction: column;
     gap: 16px;
     padding-bottom: 16px;
+    align-items: center;
+`;
+
+export const ContactInfos = styled.div`
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 16px;
     border-bottom: 1px solid #0000001a;
 `;
 
 export const ContactName = styled.h2`
-    font-size: 18px;
+    font-size: 24px;
     font-weight: bold;
     color: ${vars.black};
 `;
@@ -53,6 +61,13 @@ export const ContactEmail = styled.p`
 
 export const ContactNumber = styled.span`
     font-weight: bold;
+`;
+
+export const ContactDescription = styled.textarea`
+    resize: none;
+    border: none;
+    padding: 8px;
+    color: ${vars.txtColor};
 `;
 
 export const Buttons = styled.div`
