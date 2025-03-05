@@ -2,7 +2,7 @@ import styled from "styled-components";
 import vars from "../../styles/vars";
 
 type CardProps = {
-    $active?: boolean;
+    $active: boolean;
 };
 
 export const Card = styled.div<CardProps>`

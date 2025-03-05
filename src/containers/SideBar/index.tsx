@@ -21,22 +21,15 @@ const SideBar = () => {
             <S.Filters>
                 <FilterCard
                     criterion="prioridade"
-                    value={enums.ContactPriority.FAVORITE}
-                    counter={3}
+                    value={enums.ContactPriority.NORMAL}
                     priority="Normal"
                 />
                 <FilterCard
                     criterion="prioridade"
-                    value={enums.ContactPriority.NORMAL}
-                    counter={1}
+                    value={enums.ContactPriority.FAVORITE}
                     priority="Favorito"
                 />
-                <FilterCard
-                    criterion="todas"
-                    active
-                    counter={5}
-                    priority="Todos"
-                />
+                <FilterCard criterion="todas" priority="Todos" />
             </S.Filters>
         </S.SideBar>
     );

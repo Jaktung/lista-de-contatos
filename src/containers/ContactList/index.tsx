@@ -5,12 +5,24 @@ import { RootReducer } from "../../store";
 
 const ContactList = () => {
     const { items } = useSelector((state: RootReducer) => state.contacts);
-    const { term = "" } = useSelector((state: RootReducer) => state.filter);
+    const { term, criterion, value } = useSelector(
+        (state: RootReducer) => state.filter
+    );
 
     function contactFilter() {
-        return items.filter(
-            (i) => i.name.toLowerCase().search(term.toLowerCase()) >= 0
-        );
+        let tasksFilter = items;
+        if (term != undefined) {
+            tasksFilter = tasksFilter.filter(
+                (i) => i.name.toLowerCase().search(term.toLowerCase()) >= 0
+            );
+
+            if (criterion === "prioridade") {
+                tasksFilter = tasksFilter.filter((i) => i.priority === value);
+            }
+            return tasksFilter;
+        } else {
+            return items;
+        }
     }
 
     return (
@@ -19,6 +31,11 @@ const ContactList = () => {
                 2 tarefas marcadas como: <span>"todas"</span> e{" "}
                 <span>"{term}"</span>{" "}
             </S.MainText>
+            <ul>
+                <li>{term}</li>
+                <li>{criterion}</li>
+                <li>{value}</li>
+            </ul>
             <S.GridList>
                 {contactFilter().map((c) => (
                     <li key={c.email}>
