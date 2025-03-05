@@ -1,9 +1,9 @@
 import { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
+import { remove, edit } from "../../store/reducers/contacts";
 
 import * as S from "./styles";
 
-import { remove, edit } from "../../store/reducers/contacts";
 import ContactClass from "../../models/Contact";
 
 type Props = ContactClass;
@@ -36,7 +36,7 @@ const Contact = ({
             <S.ContactContainer>
                 <S.ContactInfos>
                     <S.ContactName>{name}</S.ContactName>
-                    <S.ContactPriority priority={priority}>
+                    <S.ContactPriority $priority={"priority"}>
                         {priority}
                     </S.ContactPriority>
                     <S.ContactEmail>{email}</S.ContactEmail>

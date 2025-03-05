@@ -3,13 +3,12 @@ import vars from "../../styles/vars";
 import * as enums from "../../utils/enums/ContactPriority";
 
 type TagProps = {
-    priority?: string;
+    $priority?: string;
 };
 
-function returnPriorityColor(props: TagProps): string {
-    if ("priority" in props) {
-        if (props.priority === enums.ContactPriority.FAVORITE)
-            return vars.yellow;
+function returnPriorityColor({ $priority }: TagProps): string {
+    if ("priority" in { $priority }) {
+        if ($priority === enums.ContactPriority.FAVORITE) return vars.yellow;
     }
     return "#ccc";
 }

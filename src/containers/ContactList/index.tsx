@@ -3,17 +3,24 @@ import * as S from "./styles";
 import { useSelector } from "react-redux";
 import { RootReducer } from "../../store";
 
-const ListaDeContatos = () => {
+const ContactList = () => {
     const { items } = useSelector((state: RootReducer) => state.contacts);
+    const { term = "" } = useSelector((state: RootReducer) => state.filter);
+
+    function contactFilter() {
+        return items.filter(
+            (i) => i.name.toLowerCase().search(term.toLowerCase()) >= 0
+        );
+    }
 
     return (
         <S.Main>
             <S.MainText>
                 2 tarefas marcadas como: <span>"todas"</span> e{" "}
-                <span>"termo"</span>{" "}
+                <span>"{term}"</span>{" "}
             </S.MainText>
             <S.GridList>
-                {items.map((c) => (
+                {contactFilter().map((c) => (
                     <li key={c.email}>
                         <Contact {...c} />
                     </li>
@@ -23,4 +30,4 @@ const ListaDeContatos = () => {
     );
 };
 
-export default ListaDeContatos;
+export default ContactList;

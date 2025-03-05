@@ -13,7 +13,7 @@ const initialState = {
             id: 1,
         },
         {
-            name: "Joao",
+            name: "João",
             email: "joao@gmail.com",
             number: 999999999,
             description: "Primo",
