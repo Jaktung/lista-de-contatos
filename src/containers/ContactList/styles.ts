@@ -14,6 +14,11 @@ export const MainText = styled.p`
     margin-bottom: 40px;
 `;
 
+export const MainList = styled.ul`
+    padding-bottom: 40px;
+    font-weight: bold;
+`;
+
 export const GridList = styled.ul`
     display: grid;
     gap: 16px;

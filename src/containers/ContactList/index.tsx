@@ -25,19 +25,33 @@ const ContactList = () => {
         }
     }
 
+    const showFilterResult = (amount: number) => {
+        let message = "";
+
+        const complement =
+            term !== undefined && term.length > 0 ? `e "${term}"` : "";
+
+        if (criterion === "todas") {
+            message = `${amount} contatos encontrados como: todas ${complement}`;
+        } else {
+            message = `${amount} contatos encontrados como: ${`${criterion}=${value}`} ${complement}`;
+        }
+        return message;
+    };
+
+    const contacts = contactFilter();
+    const message = showFilterResult(contacts.length);
+
     return (
         <S.Main>
-            <S.MainText>
-                2 tarefas marcadas como: <span>"todas"</span> e{" "}
-                <span>"{term}"</span>{" "}
-            </S.MainText>
-            <ul>
+            <S.MainText>{message}</S.MainText>
+            <S.MainList>
                 <li>{term}</li>
                 <li>{criterion}</li>
                 <li>{value}</li>
-            </ul>
+            </S.MainList>
             <S.GridList>
-                {contactFilter().map((c) => (
+                {contacts.map((c) => (
                     <li key={c.email}>
                         <Contact {...c} />
                     </li>
