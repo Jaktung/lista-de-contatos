@@ -6,11 +6,12 @@ type TagProps = {
     $priority?: string;
 };
 
-function returnPriorityColor({ $priority }: TagProps): string {
-    if ("priority" in { $priority }) {
-        if ($priority === enums.ContactPriority.FAVORITE) return vars.yellow;
+function returnPriorityColor({ $priority }: TagProps) {
+    if ($priority === enums.ContactPriority.FAVORITE) {
+        return vars.yellow;
+    } else {
+        return "#ccc";
     }
-    return "#ccc";
 }
 
 export const ContactCard = styled.div`
@@ -71,28 +72,6 @@ export const ContactDescription = styled.textarea`
 
 export const Buttons = styled.div`
     margin-top: 16px;
-`;
-
-export const LButtonSave = styled.button`
-    background-color: ${vars.green};
-    padding: 6px 12px;
-    color: ${vars.white};
-    border: none;
-    border-radius: 8px;
-    margin-right: 8px;
-    font-size: 12px;
-    cursor: pointer;
-`;
-
-export const LButtonEdit = styled.button`
-    background-color: ${vars.btnDefault};
-    padding: 6px 12px;
-    color: ${vars.white};
-    border: none;
-    border-radius: 8px;
-    margin-right: 8px;
-    font-size: 12px;
-    cursor: pointer;
 `;
 
 export const RButton = styled.button`

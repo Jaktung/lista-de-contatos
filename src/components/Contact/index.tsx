@@ -5,6 +5,7 @@ import { remove, edit } from "../../store/reducers/contacts";
 import * as S from "./styles";
 
 import ContactClass from "../../models/Contact";
+import { DefaultButton, LButtonSave } from "../../styles";
 
 type Props = ContactClass;
 
@@ -36,7 +37,7 @@ const Contact = ({
             <S.ContactContainer>
                 <S.ContactInfos>
                     <S.ContactName>{name}</S.ContactName>
-                    <S.ContactPriority $priority={"priority"}>
+                    <S.ContactPriority $priority={priority}>
                         {priority}
                     </S.ContactPriority>
                     <S.ContactEmail>{email}</S.ContactEmail>
@@ -50,7 +51,7 @@ const Contact = ({
                 <S.Buttons>
                     {isEditting ? (
                         <>
-                            <S.LButtonSave
+                            <LButtonSave
                                 onClick={() => {
                                     dispatch(
                                         edit({
@@ -66,14 +67,14 @@ const Contact = ({
                                 }}
                             >
                                 Salvar
-                            </S.LButtonSave>
+                            </LButtonSave>
                             <S.RButton onClick={cancelEdit}>Cancelar</S.RButton>
                         </>
                     ) : (
                         <>
-                            <S.LButtonEdit onClick={() => setIsEditting(true)}>
+                            <DefaultButton onClick={() => setIsEditting(true)}>
                                 Editar
-                            </S.LButtonEdit>
+                            </DefaultButton>
                             <S.RButton onClick={() => dispatch(remove(id))}>
                                 Remover
                             </S.RButton>

@@ -3,7 +3,7 @@ import { changeFilter } from "../../store/reducers/filter";
 
 import * as S from "./styles";
 import * as enums from "../../utils/enums/ContactPriority";
-import { RootReducer } from "../../store";
+import { selectContacts, selectFilters } from "../../store/selectors/contacts";
 
 export type Props = {
     priority: string;
@@ -13,11 +13,12 @@ export type Props = {
 
 export const FilterCard = ({ priority, criterion, value }: Props) => {
     const dispatch = useDispatch();
-    const { filter, contacts } = useSelector((state: RootReducer) => state);
+    const contacts = useSelector(selectContacts);
+    const filters = useSelector(selectFilters);
 
     const verifyIsActive = () => {
-        const sameCriterion = filter.criterion === criterion;
-        const sameValue = filter.value === value;
+        const sameCriterion = criterion === criterion;
+        const sameValue = filters.value === value;
 
         return sameCriterion && sameValue;
     };

@@ -1,5 +1,6 @@
 import Contact from "../../components/Contact";
 import * as S from "./styles";
+import { MainContainer, MainTitle } from "../../styles";
 import { useSelector } from "react-redux";
 import { RootReducer } from "../../store";
 
@@ -43,8 +44,8 @@ const ContactList = () => {
     const message = showFilterResult(contacts.length);
 
     return (
-        <S.Main>
-            <S.MainText>{message}</S.MainText>
+        <MainContainer>
+            <MainTitle>{message}</MainTitle>
             <S.MainList>
                 <li>{term}</li>
                 <li>{criterion}</li>
@@ -57,7 +58,7 @@ const ContactList = () => {
                     </li>
                 ))}
             </S.GridList>
-        </S.Main>
+        </MainContainer>
     );
 };
 

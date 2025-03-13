@@ -9,4 +9,5 @@ export default {
     btnDefault: "#2f3640",
     yellow: "#e1a32a",
     bgColor2: "#fcfcfc",
+    page2txt: "#666666",
 };

@@ -1,5 +1,11 @@
+import { PlusButton } from "./styles";
+
 const AddButton = () => {
-    return <a href="">+</a>;
+    return (
+        <>
+            <PlusButton to="/add">+</PlusButton>
+        </>
+    );
 };
 
 export default AddButton;

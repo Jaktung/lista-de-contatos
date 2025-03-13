@@ -1,5 +1,13 @@
+import Form from "../../containers/Form";
+import AddPageSide from "../../containers/AddPageSide";
+
 const Add = () => {
-    return <div>Add</div>;
+    return (
+        <>
+            <AddPageSide />
+            <Form />
+        </>
+    );
 };
 
 export default Add;
